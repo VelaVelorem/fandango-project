@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol, li {
+    list-style: none;
+    text-decoration: none;
+}
+body {
+    background-color: black;
+}
+.profImage1 {
+    width: 150px;
+    height: 150px;
+}
+.profImage2 {
+    width: 150px;
+    height: 150px;
+}
+.profImage3 {
+    width: 150px;
+    height: 150px;
+}
+.profileContainer {
+    display: flex;
+    justify-content: center;
+}
+section {
+    width: 900px;
+    margin: 0 auto;
+    background-color: white;
+}

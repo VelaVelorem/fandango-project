@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;         
+}
+
+body {
+    width: 900px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+}
+a {
+    text-decoration: none;
+}
+p {
+    font-size: 13px;
+}
+.mainText {
+    width: 95%;
+    margin-top: 10px;
+    letter-spacing: 0.3px;
+    margin-left: auto;
+    margin-right: auto;
+}
+li, ol, ul {
+    list-style: none;
+    display: flex;
+}
+nav {
+    height: 35px;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #f8f9fa;
+
+}
+nav ul li {
+    letter-spacing: 3px;
+    margin-right: 70px;
+}
+h1 {
+    margin: 2%;
+    font-size: 25px;
+    letter-spacing: 4px;
+    font-family: verdana, sans-serif;
+    color: slategrey;
+    text-align: center;
+    text-transform: uppercase;
+    
+}
+h2 {
+    font-family: verdana, sans-serif;
+    margin-top: 35px;
+    margin-left: 15px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #f8f9fa;
+    font-size: 21px;
+    color: lightgrey;
+}
+#mainTextBodies {
+    display: flex;
+}
+section {
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid #f8f9fa;
+}
+#right-container {
+    width: 70%;
+}
+.rightContainerImage {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 300px;
+    /* box-shadow: 3px 1px 15px grey; */
+}
+table {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: .3px solid lightgrey;
+    padding: 3px;
+    color: slategrey;
+}
+table th {
+    border: .3px solid lightgrey;
+    padding: 3px;
+    /* border-right: .3px solid lightgrey;  */
+}
+table td {
+    border: .3px solid lightgrey;
+    padding: 3px;
+    /* border-right: .3px solid lightgrey;  */
+}
+.tableTitle {
+    letter-spacing: 1.4px;
+}
+img {
+    display: block;
+}
+.subheader {
+    margin-top: 8px;
+    font-weight: 500;
+    text-align: right;
+    margin-right: 62px;
+}
+hr {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    color: #f8f9fa;
+}
+.project img {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 3px 5px 10px grey;
+}
+.movieTitle {
+    margin-left: 30px;
+    margin-top: 10px;
+    letter-spacing: 3px;
+    font-size: 16px;
+    color: slategrey;
+    border-left: 3px solid slategrey;
+    padding-left: 5px;
+}
+.movieSynopsis {
+    width: 70%;
+    padding: 5px;
+    font-size: 13px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+    font-family: verdana;
+}
+.project {
+    margin-top: 35px;
+}
+em {
+    
+}
+#previousWorks {
+    margin-top: 30px;
+}
+.pastWorks {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+.pastWorks td {
+    padding: 10px;
+    letter-spacing: 1px;
+}
+.pastWorks th {
+    padding: 5px;
+    letter-spacing: 0.5px;
+}
+footer h2 {
+    border-left: 3px solid grey;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+.newsSub {
+    margin-left: 20px;
+    margin-bottom: 25px;
+}
+#newsletter {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+button {
+    padding: 2px;
+    background-color: white;
+    border: 1px solid grey;
+}
+.emailText {
+    letter-spacing: 3px;
+}
+form {
+    margin-left: 5px;
+}
+.poll {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid lightgrey;
+    letter-spacing: 1px;
+    color: slategrey;
+}
+.poll submit {
+    background-color: white;
+}
+fieldset {
+    border: 1px solid lightgrey;
+    padding: 5px;
+}
