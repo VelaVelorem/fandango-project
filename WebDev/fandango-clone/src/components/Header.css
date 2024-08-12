@@ -1,0 +1,23 @@
+.fandangoLogo {
+    height: 30px;
+    margin-top: 0.5em;
+    margin-bottom: 0.7em;
+}
+.ticketSelectionHeader i {
+    color: #f56f01;
+    font-size: 16px;
+}
+.ticketSelectionHeader {
+    border-bottom: 0.5px solid #21282f;
+    border-top: 0.5px solid #21282f;
+    padding-bottom: 0.7em;
+    padding-top: 0.5em;
+}
+.ticketSelection-P {
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+}
+.leftArrow {
+    font-size: 1.5em;
+}

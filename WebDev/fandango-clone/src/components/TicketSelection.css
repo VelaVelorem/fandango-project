@@ -1,0 +1,33 @@
+/* ACCORDION */
+
+.policyAccordion {
+    background-color: #171c20;
+    border: none;
+}
+.policyAccordionHeader {
+    background: #171c20;
+    border: none;
+    
+}
+.accordion-body h2 {
+    font-size: 16px;
+    /* margin-bottom: 0.5em; */
+}
+.accordion-button:not(.collapsed) {
+    background: none;
+}
+.accordion-button:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid orange;
+}
+.policy-text {
+    font-size: 14px;
+    color: grey;
+}
+.accordionBold {
+    color: grey;
+}
+.bs-accordion-bg {
+    background-color: #171c20;
+}
