@@ -1,9 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Footer.css'; // Add your custom styles for the footer
+import './Footer.css';
 import  img  from '../assets/imgs/footerimage.png'
 
 const Footer = () => (
+    <>
     <footer>
         <div className="footerBody">
             <h4 className="footerCopyright text-center">
@@ -11,16 +12,19 @@ const Footer = () => (
             </h4>
             <div className="footerLinks text-center">
                 <ul>
-                    <a href="#"><li>Ad Choices</li></a>
-                    <a href="#"><li>Privacy Policy</li></a>
-                    <a href="#"><li>Your Privacy Choices</li></a>
-                    <a href="#"><li>CA Notice</li></a>
-                    <a href="#"><li>Terms & Policies</li></a>
-                    <a href="#"><li>Accessibility</li></a>
+                    <a href=""><li className="me-1">Ad Choices</li></a>
+                    <a href=""><li className="me-1">Privacy Policy</li></a>
+                    <a href=""><li className="me-1">Your Privacy Choices</li></a>
+                    <a href=""><li className="me-1">CA Notice</li></a>
+                    <a href=""><li className="me-1">Terms & Policies</li></a>
+                    <a href=""><li className="me-1">Accessibility</li></a>
                 </ul>
             </div>
         </div>
-        <div className="footerEnd">
+        
+    </footer>
+    
+    <div className="footerEnd">
             <div className="button-holder text-center">
                 <button type="button" className="nextBtn btn" id="nextBtn">Next</button>
             </div>
@@ -28,7 +32,7 @@ const Footer = () => (
                 <img src={img} alt="Logos of partnered brands" />
             </div>
         </div>
-    </footer>
+        </>
 );
 
 export default Footer;

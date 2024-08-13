@@ -14,7 +14,7 @@
     /* margin-bottom: 0.5em; */
 }
 .accordion-button:not(.collapsed) {
-    background: none;
+    background: #171c20;
 }
 .accordion-button:focus {
     outline: none;
@@ -31,3 +31,17 @@
 .bs-accordion-bg {
     background-color: #171c20;
 }
+/* END OF ACCORDION */
+
+.plusIcon,
+.minusIcon {
+    background-color: #171c20;
+    border: none;
+    font-size: 1.5em;
+}
+
+/* .plusIcon:hover,
+.minusIcon:hover {
+    cursor: pointer;
+    color: #307fd5;
+} */
