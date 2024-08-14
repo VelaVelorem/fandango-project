@@ -12,9 +12,10 @@ const Header = () => (
                 <img src={fandangoLogo} alt="Fandango Logo" className="fandangoLogo" />
             </div>
         </div>
-        <div className="ticketSelectionHeader d-flex align-items-center justify-content-start">
+        <div className="ticketSelectionHeader d-flex align-items-center justify-content-center">
             <FontAwesomeIcon icon={faArrowLeft} className="leftArrow ms-3" />
             <span className="ticketSelection-P mx-auto pe-5">Ticket Selection</span>
+
         </div>
     </header>
 );

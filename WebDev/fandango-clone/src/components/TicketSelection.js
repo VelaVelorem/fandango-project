@@ -14,7 +14,7 @@ const TicketSelection = () => {
     const adultTicketBase = 14.84;
     const seniorTicketBase = 13.19;
     const childTicketBase = 11.54;
-    // useState to keep track of changes for variables. Each ticket base will start out as 0 tickets.
+    // useState to keep track of changes for variables. Each ticket base will start out 0 tickets.
     const [adultTickets, setAdultTickets] = useState(0);
     const [seniorTickets, setSeniorTickets] = useState(0);
     const [childTickets, setChildTickets] = useState(0);
