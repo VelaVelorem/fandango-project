@@ -1,37 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import './TicketSelection.css';
+import img from '../assets/imgs/footerimage.png';
 
 const TicketSelection = () => {
-    let adultTicketBase = 14.84;
-    let seniorTicketBase = 13.19;
-    let childTicketBase = 11.54;
 
+        // Notes: Initialized variables for separate ticket base prices. 
+// Be able to add and decrease ticket count, then use a Math method to add/subtract/multiply the ticket count by the base price.
 
-    const [currentTickets, setCurrentTickets] = useState(0);
-
-    const addTicket = () => {
-        setCurrentTickets(count => {
-            if(count < 25) {
-                return count + 1;
-            }
-            return count;
-        })
-    };
-    
-    const removeTicket = () => {
-        setCurrentTickets(count => {
-            if(count > 0) {
-                return count -1;
-            }
-            return count;
-        });
-    };
-
+    const adultTicketBase = 14.84;
+    const seniorTicketBase = 13.19;
+    const childTicketBase = 11.54;
+    // useState to keep track of changes for variables. Each ticket base will start out as 0 tickets.
+    const [adultTickets, setAdultTickets] = useState(0);
+    const [seniorTickets, setSeniorTickets] = useState(0);
+    const [childTickets, setChildTickets] = useState(0);
+    // useState for my accordion
     const [activeKey, setActiveKey] = useState('null');
+
+    // useState specifically for button to be disabled/enabled.
+    const [isDisabled, setIsDisabled] = useState(true);
+
+    // A function to add or remove tickets using a switch function and ternary method. 
+    const addTicket = (ticketType) => {
+        switch (ticketType) {
+            case 'adult':
+                setAdultTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+                break;
+            case 'senior':
+                setSeniorTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+                break;
+            case 'child':
+                setChildTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+                break;
+            default:
+                break;
+        }
+    };
+
+    const removeTicket = (ticketType) => {
+        switch (ticketType) {
+            case 'adult':
+                setAdultTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+                break;
+            case 'senior':
+                setSeniorTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+                break;
+            case 'child':
+                setChildTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+                break;
+            default:
+                break;
+        }
+    };
+
+    // useEffect is going to work along with useState to combine the totals of the previous ticket types and will enable and disable button based off it.
+    useEffect(() => {
+        const totalTickets = adultTickets + seniorTickets + childTickets;
+        setIsDisabled(totalTickets === 0);
+    });
 
     return (
         <section className="ticketSection">
@@ -47,9 +77,9 @@ const TicketSelection = () => {
                         <div className="ticketAmount col-6">
                             <div className="d-flex justify-content-end">
                                 <ul>
-                                    <button className="minusIcon" onClick={removeTicket}><FontAwesomeIcon icon={faCircleMinus}  /></button>
-                                    <li className="mx-4">{currentTickets}</li>
-                                    <button className="plusIcon" onClick={addTicket}><FontAwesomeIcon icon={faCirclePlus}  /></button>
+                                    <button className="minusIcon" onClick={() => removeTicket('adult')}><FontAwesomeIcon icon={faCircleMinus} /></button>
+                                    <li className="mx-4">{adultTickets}</li>
+                                    <button className="plusIcon" onClick={() => addTicket('adult')}><FontAwesomeIcon icon={faCirclePlus} /></button>
                                 </ul>
                             </div>
                         </div>
@@ -63,9 +93,9 @@ const TicketSelection = () => {
                         <div className="ticketAmount col-6">
                             <div className="d-flex justify-content-end">
                                 <ul>
-                                <button className="minusIcon" onClick={removeTicket}><FontAwesomeIcon icon={faCircleMinus}  /></button>
-                                <li className="mx-4">{currentTickets}</li>
-                                <button className="plusIcon" onClick={addTicket}><FontAwesomeIcon icon={faCirclePlus}  /></button>
+                                    <button className="minusIcon" onClick={() => removeTicket('senior')}><FontAwesomeIcon icon={faCircleMinus} /></button>
+                                    <li className="mx-4">{seniorTickets}</li>
+                                    <button className="plusIcon" onClick={() => addTicket('senior')}><FontAwesomeIcon icon={faCirclePlus} /></button>
                                 </ul>
                             </div>
                         </div>
@@ -79,9 +109,9 @@ const TicketSelection = () => {
                         <div className="ticketAmount col-6">
                             <div className="d-flex justify-content-end">
                                 <ul>
-                                <button className="minusIcon" ><FontAwesomeIcon icon={faCircleMinus}  /></button>
-                                <li className="mx-4">{currentTickets}</li>
-                                <button className="plusIcon" onClick={addTicket}><FontAwesomeIcon icon={faCirclePlus}  /></button>
+                                    <button className="minusIcon" onClick={() => removeTicket('child')}><FontAwesomeIcon icon={faCircleMinus} /></button>
+                                    <li className="mx-4">{childTickets}</li>
+                                    <button className="plusIcon" onClick={() => addTicket('child')}><FontAwesomeIcon icon={faCirclePlus} /></button>
                                 </ul>
                             </div>
                         </div>
@@ -89,9 +119,9 @@ const TicketSelection = () => {
 
                     <p className="disclaimer">Prices and fees include estimated tax per ticket.</p>
 
-                    <Accordion activeKey={activeKey} onSelect={(key) => setActiveKey(key)} defaultActiveKey="0" className="policyAccordion">
-                        <AccordionItem eventKey="0" className="policyAccordion" >
-                            <AccordionHeader className="policyAccordionHeader" >AMC Policies</AccordionHeader>
+                    <Accordion activeKey={activeKey} onSelect={(key) => setActiveKey(key)} defaultActiveKey="0">
+                    <AccordionItem eventKey="0" className="policyAccordion">
+                            <AccordionHeader><span className="accordionHeader">AMC Policies</span></AccordionHeader>
                             <AccordionBody className="policyAccordion">
                                 <h2>Age Policy</h2>
                                 <span className="policy-text">
@@ -109,7 +139,7 @@ const TicketSelection = () => {
                                     Distraction-Free Entertainment
                                     In an effort to provide the most enjoyable experience for adults attending R-rated features in the evenings, no children younger than 6 will be admitted to these features after 6 p.m
                                 </span>
-                                
+
                                 <h2 className="mt-3">Theater Policy</h2>
                                 <span className="policy-text">
                                     AMC reserves the right to exercise special pricing options for unique in-theatre experiences.
@@ -123,6 +153,33 @@ const TicketSelection = () => {
                             </AccordionBody>
                         </AccordionItem>
                     </Accordion>
+                </div>
+            </div>
+
+            <footer>
+                <div className="footerBody">
+                    <h4 className="footerCopyright text-center">
+                        @ 2024 Fandango
+                    </h4>
+                    <div className="footerLinks text-center">
+                        <ul>
+                            <a href=""><li className="me-1">Ad Choices</li></a>
+                            <a href=""><li className="me-1">Privacy Policy</li></a>
+                            <a href=""><li className="me-1">Your Privacy Choices</li></a>
+                            <a href=""><li className="me-1">CA Notice</li></a>
+                            <a href=""><li className="me-1">Terms & Policies</li></a>
+                            <a href=""><li className="me-1">Accessibility</li></a>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+
+            <div className="footerEnd">
+                <div className="button-holder text-center">
+                    <button type="button" className="nextBtn btn" id="nextBtn" disabled={isDisabled}>Next</button>
+                </div>
+                <div className="img-holder mt-4 d-flex justify-content-center">
+                    <img src={img} alt="Logos of partnered brands" />
                 </div>
             </div>
         </section>

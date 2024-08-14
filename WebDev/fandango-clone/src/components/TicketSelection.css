@@ -7,6 +7,7 @@
 .policyAccordionHeader {
     background: #171c20;
     border: none;
+    color: white;
     
 }
 .accordion-body h2 {
@@ -21,6 +22,9 @@
     box-shadow: none;
     border: 1px solid orange;
 }
+.accordion-button.collapsed {
+    background: #171c20;
+  }
 .policy-text {
     font-size: 14px;
     color: grey;
@@ -45,3 +49,67 @@
     cursor: pointer;
     color: #307fd5;
 } */
+.accordionHeader {
+    color: lightgrey;
+}
+footer {
+    background-color: #252d34;
+    margin-top: 15em;
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+.footerBody {
+    width: 40%;
+    margin: auto;
+}
+h4 {
+    font-size: 12px;
+}
+.footerLinks li {
+    font-size: 11px;
+    border-bottom: 1px solid #307fd5;
+    color: #307fd5;
+}
+.footerLinks li:after {
+    content: "•";
+    font-size: 8px;
+    margin-left: 5px;
+}
+.footerLinks li:hover {
+    border-bottom: 1px solid #6ca0d8;
+    color: #6ca0d8;
+    
+}
+hr {
+    margin-top: 1.5em;
+}
+.nextBtn {
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    background-color: #f56f01;
+    padding-left: 10em;
+    padding-right: 10em;
+    padding-bottom: 0.3em;
+    padding-top: 0.3em;
+    line-height: 2em;
+    border-radius: 3px;
+}
+.nextBtn:disabled {
+    background-color: grey;
+}
+.footerEnd {
+    border-top: 1px solid #252d34;
+    padding-top: 0.8em;
+    margin-top: 1em;
+}
+@media (min-width: 768px) {
+    .footerEnd {
+        border-top: none;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        overflow-y: hidden;
+    }
+}

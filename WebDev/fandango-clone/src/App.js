@@ -11,7 +11,6 @@ function App() {
     <div>
       <Header />
       <TicketSelection />
-      <Footer />
     </div>
   );
 }

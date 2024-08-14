@@ -13,34 +13,6 @@
 .policies:hover {
     color: #6ca0d8;
 }
-/* ACCORDION */
-.policyAccordion {
-    background: none;
-}
-.policyAccordionHeader {
-    background: none;
-    
-}
-.accordion-body h2 {
-    font-size: 16px;
-    /* margin-bottom: 0.5em; */
-}
-.accordion-button:not(.collapsed) {
-    background: none;
-}
-.accordion-button:focus {
-    outline: none;
-    box-shadow: none;
-    border: 1px solid orange;
-}
-.policy-text {
-    font-size: 14px;
-    color: grey;
-}
-.accordionBold {
-    color: grey;
-}
-/* END OF ACCORDION */
 footer {
     background-color: #252d34;
     margin-top: 15em;
@@ -83,6 +55,9 @@ hr {
     padding-top: 0.3em;
     line-height: 2em;
     border-radius: 3px;
+}
+.nextBtn:disabled {
+    background-color: grey;
 }
 .footerEnd {
     border-top: 1px solid #252d34;
