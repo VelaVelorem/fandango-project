@@ -8,9 +8,6 @@ import { useState } from 'react'
 const Footer = () => (
  <>
 
-    // useState to keep track of state for Next button. Button should be disable until a ticket has been chosen.
-    const [isInactive, setIsInactive] = useState(true);
-
     <footer>
         <div className="footerBody">
             <h4 className="footerCopyright text-center">
