@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'react-bootstrap';
+import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Modal, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
@@ -8,9 +8,18 @@ import img from '../assets/imgs/footerimage.png';
 
 const TicketSelection = () => {
 
-        // Notes: Initialized variables for separate ticket base prices. 
-// Be able to add and decrease ticket count, then use a Math method to add/subtract/multiply the ticket count by the base price.
+    // useState for modal/
+    const [appear, setAppear] = useState(false);
 
+    const closeModal = () => {
+        setAppear(false);
+    }
+
+    const openModal = () => {
+        setAppear(true);
+    }
+    // Notes: Initialized variables for separate ticket base prices. 
+// Be able to add and decrease ticket count, then use a Math method to add/subtract/multiply the ticket count by the base prices
     const adultTicketBase = 14.84;
     const seniorTicketBase = 13.19;
     const childTicketBase = 11.54;
@@ -24,7 +33,8 @@ const TicketSelection = () => {
     // useState specifically for button to be disabled/enabled.
     const [isDisabled, setIsDisabled] = useState(true);
 
-    // A function to add or remove tickets using a switch function and ternary method. 
+    // A function to add or remove tickets using a switch function and ternary method, each demographic type has a limit of 25 tickets. 
+    //Their ticket counts are separate from one another.. 
     const addTicket = (ticketType) => {
         switch (ticketType) {
             case 'adult':
@@ -61,7 +71,8 @@ const TicketSelection = () => {
     useEffect(() => {
         const totalTickets = adultTickets + seniorTickets + childTickets;
         setIsDisabled(totalTickets === 0);
-    });
+    }, []);
+    
 
     return (
         <section className="ticketSection">
@@ -161,7 +172,7 @@ const TicketSelection = () => {
                     <h4 className="footerCopyright text-center">
                         @ 2024 Fandango
                     </h4>
-                    <div className="footerLinks text-center">
+                    <nav className="footerLinks text-center">
                         <ul>
                             <a href=""><li className="me-1">Ad Choices</li></a>
                             <a href=""><li className="me-1">Privacy Policy</li></a>
@@ -170,17 +181,32 @@ const TicketSelection = () => {
                             <a href=""><li className="me-1">Terms & Policies</li></a>
                             <a href=""><li className="me-1">Accessibility</li></a>
                         </ul>
-                    </div>
+                    </nav>
                 </div>
             </footer>
 
             <div className="footerEnd">
                 <div className="button-holder text-center">
-                    <button type="button" className="nextBtn btn" id="nextBtn" disabled={isDisabled}>Next</button>
+                    <button type="button" className="nextBtn btn" id="nextBtn" disabled={isDisabled} onClick={openModal}>Next</button>
                 </div>
                 <div className="img-holder mt-4 d-flex justify-content-center">
                     <img src={img} alt="Logos of partnered brands" />
                 </div>
+
+                <Modal show={appear} onHide={closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={closeModal}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={openModal}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         </section>
     );
