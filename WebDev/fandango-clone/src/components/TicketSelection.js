@@ -9,6 +9,7 @@ import img from '../assets/imgs/footerimage.png';
 const TicketSelection = () => {
 
     const [appear, setAppear] = useState(false);
+    
     const closeModal = () => {
         setAppear(false);
     }
@@ -64,7 +65,7 @@ const TicketSelection = () => {
     useEffect(() => {
         const totalTickets = adultTickets + seniorTickets + childTickets;
         setIsDisabled(totalTickets === 0);
-    }, []);
+    }, [adultTickets, seniorTickets, childTickets]);
     
 
     return (
