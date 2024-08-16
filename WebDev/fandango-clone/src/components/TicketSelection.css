@@ -113,3 +113,20 @@ hr {
         overflow-y: hidden;
     }
 }
+/* MODAL CSS */
+.bg-dark {
+    background-color: #171c20;
+}
+label {
+    font-size: 1.2em;
+}
+.signInBtn {
+    font-size: 1.5em;
+    font-weight: 800;
+    background-color: #408cca;
+    border-radius: 0;
+    padding: 0.5em;
+    color: white;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}

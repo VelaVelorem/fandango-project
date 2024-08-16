@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Modal, Form, Button } from 'react-bootstrap';
+import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Modal, Form, Button, Container, Label, Col, Row, FormGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import './TicketSelection.css';
 import img from '../assets/imgs/footerimage.png';
+import fandangoLogo from '../assets/imgs/fandango.svg'
 
 const TicketSelection = () => {
 
@@ -61,7 +62,6 @@ const TicketSelection = () => {
         }
     };
 
-    // useEffect is going to work along with useState to combine the totals of the previous ticket types and will enable and disable button based off it.
     useEffect(() => {
         const totalTickets = adultTickets + seniorTickets + childTickets;
         setIsDisabled(totalTickets === 0);
@@ -188,18 +188,41 @@ const TicketSelection = () => {
                 </div>
 
                 <Modal show={appear} onHide={closeModal}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={closeModal}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={openModal}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
+                    <Modal.Body className="bg-dark">
+                        <div className="d-flex justify-content-center align-items-center">
+                            <img src={fandangoLogo} className="w-50 mb-4" />
+                        </div>
+                        
+                        <Form>
+                            <Container>
+                                <Row>
+
+                                    <Col className="col-12">
+                                        <FormGroup className="mb-3">
+                                            <label for="username" className="form-label">Username</label>
+                                            <input type="username" className="form-control" id="username" />
+                                        </FormGroup>
+                                    </Col>
+
+                                    <Col className="col-12">
+                                        <FormGroup className="mb-2">
+                                            <label for="password" className="form-label">Password</label>
+                                            <input type="password" className="form-control" id="password" />
+                                        </FormGroup>
+                                    </Col>
+
+                                    <span className="forgotPW ">Forgot your password?</span>
+
+                                    <Col className="col-12">
+                                        <button type="submit" className="w-100 btn signInBtn mt-3 mb-3">Sign in</button>
+                                    </Col>
+
+                                    <span className="termsText text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</span>
+
+                                </Row>
+                            </Container>
+                        </Form>
+                    </Modal.Body>
                 </Modal>
             </div>
         </section>
