@@ -8,9 +8,7 @@ import img from '../assets/imgs/footerimage.png';
 
 const TicketSelection = () => {
 
-    // useState for modal/
     const [appear, setAppear] = useState(false);
-
     const closeModal = () => {
         setAppear(false);
     }
@@ -18,23 +16,18 @@ const TicketSelection = () => {
     const openModal = () => {
         setAppear(true);
     }
-    // Notes: Initialized variables for separate ticket base prices. 
-// Be able to add and decrease ticket count, then use a Math method to add/subtract/multiply the ticket count by the base prices
+    
     const adultTicketBase = 14.84;
     const seniorTicketBase = 13.19;
     const childTicketBase = 11.54;
-    // useState to keep track of changes for variables. Each ticket base will start out 0 tickets.
+
     const [adultTickets, setAdultTickets] = useState(0);
     const [seniorTickets, setSeniorTickets] = useState(0);
     const [childTickets, setChildTickets] = useState(0);
-    // useState for my accordion
-    const [activeKey, setActiveKey] = useState('null');
 
-    // useState specifically for button to be disabled/enabled.
+    const [activeKey, setActiveKey] = useState('null');
     const [isDisabled, setIsDisabled] = useState(true);
 
-    // A function to add or remove tickets using a switch function and ternary method, each demographic type has a limit of 25 tickets. 
-    //Their ticket counts are separate from one another.. 
     const addTicket = (ticketType) => {
         switch (ticketType) {
             case 'adult':
