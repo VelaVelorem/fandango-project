@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Modal, Form, Container, Col, Row, FormGroup } from 'react-bootstrap';
-import { Input } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './TicketSelection.css';
 import img from '../assets/imgs/footerimage.png';
-import fandangoLogo from '../assets/imgs/fandango.svg'
+import fandangoLogo from '../assets/imgs/fandango.svg';
 import { loginFormValidation } from '../utils/loginFormValidation';
+
 
 const TicketSelection = () => {
 
     // MODAL LOGIC PORTION
+    // Notes: 1st state sets the default of the model to be false so it will be close, the closeModal and openModal will be attached to nextBtn to toggle the modal.
+    // next two useStates will handle the state for the user/password log in information, both set to empty string values.
     const [appear, setAppear] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -25,11 +27,19 @@ const TicketSelection = () => {
         setAppear(true);
     } 
 
+    // Notes: handleSubmit will be chained to the login form, 
+    // using the preventDefault method it will refrain the page from refreshing once the form has been submitted.
+    // validationErrors grabs the object properties/keys from the loginFormValidation objects and checks if there are any errors, if there aren't, the login modal will close.
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-    }
 
+        const validationErrors = loginFormValidation(username, password);
+        if (Object.keys(validationErrors).length === 0) {
+            closeModal();
+        } else {
+            setErrors(validationErrors);
+        }
+    };
     // TICKET SELECTION VARIABLES PORTION
     const adultTicketBase = 14.84;
     const seniorTicketBase = 13.19;
@@ -43,6 +53,7 @@ const TicketSelection = () => {
     const [isDisabled, setIsDisabled] = useState(true);
 
     // INCREMENT/DECREMENT TICKET COUNT PORTION
+    // Notes: Meaning of ternary operator will be if current ticket count is less than 25, next step is to add a ticket then return the current ticket count.
     const addTicket = (ticketType) => {
         switch (ticketType) {
             case 'adult':
@@ -75,6 +86,8 @@ const TicketSelection = () => {
         }
     };
     // USEEFFECT TO DEFINE THE CONSEQUENCE(AFTER EFFERS) OF USESTATE
+    // Notes: totalTickets is the accumulation of all the ticket types, 
+    // setIsDisabled is connected to the useState variables to have the nextBtn disabled until the current ticket count is more than 0.
     useEffect(() => {
         const totalTickets = adultTickets + seniorTickets + childTickets;
         setIsDisabled(totalTickets === 0);
@@ -213,20 +226,19 @@ const TicketSelection = () => {
                                     <Col className="col-12">
                                         <FormGroup className="mb-3">
                                             <label htmlfor="username" className="form-label">Username</label>
-                                            <input type="username" className="form-control" />
-                                            <Input 
+                                            <input
                                                 type="text"
                                                 className="form-control"
                                                 id="username"
                                                 value={username}
                                                 onChange={(e) => setUsername(e.target.value)}/>
+                                                 {errors.username && <div className="text-danger">{errors.username}</div>}
                                         </FormGroup>
                                     </Col>
 
                                     <Col className="col-12">
                                         <FormGroup className="mb-2">
                                             <label htmlfor="password" className="form-label">Password</label>
-                                            <input type="password" className="form-control" />
                                             <input
                                                 type="password"
                                                 className="form-control"
@@ -234,6 +246,7 @@ const TicketSelection = () => {
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
                                             />
+                                             {errors.password && <div className="text-danger">{errors.password}</div>}
                                         </FormGroup>
                                     </Col>
 
