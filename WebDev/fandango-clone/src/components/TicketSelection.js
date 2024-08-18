@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Modal, Form, Button, Container, Label, Col, Row, FormGroup } from 'react-bootstrap';
+import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Modal, Form, Container, Col, Row, FormGroup } from 'react-bootstrap';
+import { Input } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import './TicketSelection.css';
 import img from '../assets/imgs/footerimage.png';
 import fandangoLogo from '../assets/imgs/fandango.svg'
+import { loginFormValidation } from '../utils/loginFormValidation';
 
 const TicketSelection = () => {
 
+    // MODAL LOGIC PORTION
     const [appear, setAppear] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({})
     
     const closeModal = () => {
         setAppear(false);
@@ -17,8 +23,14 @@ const TicketSelection = () => {
 
     const openModal = () => {
         setAppear(true);
+    } 
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
     }
-    
+
+    // TICKET SELECTION VARIABLES PORTION
     const adultTicketBase = 14.84;
     const seniorTicketBase = 13.19;
     const childTicketBase = 11.54;
@@ -30,38 +42,39 @@ const TicketSelection = () => {
     const [activeKey, setActiveKey] = useState('null');
     const [isDisabled, setIsDisabled] = useState(true);
 
+    // INCREMENT/DECREMENT TICKET COUNT PORTION
     const addTicket = (ticketType) => {
         switch (ticketType) {
             case 'adult':
-                setAdultTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
-                break;
+            setAdultTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+            break;
             case 'senior':
-                setSeniorTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
-                break;
+            setSeniorTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+            break;
             case 'child':
-                setChildTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
-                break;
+            setChildTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+            break;
             default:
-                break;
+            break;
         }
     };
 
     const removeTicket = (ticketType) => {
         switch (ticketType) {
             case 'adult':
-                setAdultTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
-                break;
+            setAdultTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+            break;
             case 'senior':
-                setSeniorTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
-                break;
+            setSeniorTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+            break;
             case 'child':
-                setChildTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
-                break;
+            setChildTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+            break;
             default:
-                break;
+            break;
         }
     };
-
+    // USEEFFECT TO DEFINE THE CONSEQUENCE(AFTER EFFERS) OF USESTATE
     useEffect(() => {
         const totalTickets = adultTickets + seniorTickets + childTickets;
         setIsDisabled(totalTickets === 0);
@@ -193,21 +206,34 @@ const TicketSelection = () => {
                             <img src={fandangoLogo} className="w-50 mb-4" />
                         </div>
                         
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Container>
                                 <Row>
 
                                     <Col className="col-12">
                                         <FormGroup className="mb-3">
-                                            <label for="username" className="form-label">Username</label>
-                                            <input type="username" className="form-control" id="username" />
+                                            <label htmlfor="username" className="form-label">Username</label>
+                                            <input type="username" className="form-control" />
+                                            <Input 
+                                                type="text"
+                                                className="form-control"
+                                                id="username"
+                                                value={username}
+                                                onChange={(e) => setUsername(e.target.value)}/>
                                         </FormGroup>
                                     </Col>
 
                                     <Col className="col-12">
                                         <FormGroup className="mb-2">
-                                            <label for="password" className="form-label">Password</label>
-                                            <input type="password" className="form-control" id="password" />
+                                            <label htmlfor="password" className="form-label">Password</label>
+                                            <input type="password" className="form-control" />
+                                            <input
+                                                type="password"
+                                                className="form-control"
+                                                id="password"
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+                                            />
                                         </FormGroup>
                                     </Col>
 
