@@ -8,7 +8,7 @@ const MOVIES = [
 {
     Title: "Ponyo",
     Date: "Thursday, Oct 5 at 3:35pm",
-    Location: "AMC Shrilington VA",
+    Location: "AMC Lorton VA",
     Image: "https://i.pinimg.com/236x/8c/46/ba/8c46ba2519e23b10bf563ea7898424dc.jpg"
 }
 ]

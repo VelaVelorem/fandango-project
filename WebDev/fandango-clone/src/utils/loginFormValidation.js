@@ -5,8 +5,8 @@ export const loginFormValidation = (username, password) => {
         errors.username = 'You must include a username.';
     }
     
-    if (username.length < 10) {
-        errors.username = 'Oops! Your username must contain at least 10 characters.'
+    if (username.length < 8) {
+        errors.username = 'Oops! Your username must contain at least 8 characters.'
     }
     if (password.length < 8 || !/\d/.test(password) ) {
         errors.password = 'Oops! Your password must contain at least 8 characters and one digit.'

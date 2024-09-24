@@ -7,40 +7,44 @@ import './TicketSelection.css';
 import img from '../assets/imgs/footerimage.png';
 import fandangoLogo from '../assets/imgs/fandango.svg';
 import { loginFormValidation } from '../utils/loginFormValidation';
+import { useNavigate } from 'react-router-dom'
 
 
 const TicketSelection = () => {
 
-    // MODAL LOGIC PORTION
-    // Notes: 1st state sets the default of the model to be false so it will be close, the closeModal and openModal will be attached to nextBtn to toggle the modal.
-    // next two useStates will handle the state for the user/password log in information, both set to empty string values.
+    const navigate = useNavigate();
+
     const [appear, setAppear] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({})
-    
+
     const closeModal = () => {
         setAppear(false);
     }
 
     const openModal = () => {
         setAppear(true);
-    } 
+    }
 
     // Notes: handleSubmit will be chained to the login form, 
     // using the preventDefault method it will refrain the page from refreshing once the form has been submitted.
     // validationErrors grabs the object properties/keys from the loginFormValidation objects and checks if there are any errors, if there aren't, the login modal will close.
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const validationErrors = loginFormValidation(username, password);
         if (Object.keys(validationErrors).length === 0) {
             closeModal();
+            navigate('/Seats');
         } else {
             setErrors(validationErrors);
         }
     };
+
     // TICKET SELECTION VARIABLES PORTION
+
     const adultTicketBase = 14.84;
     const seniorTicketBase = 13.19;
     const childTicketBase = 11.54;
@@ -54,45 +58,48 @@ const TicketSelection = () => {
 
     // INCREMENT/DECREMENT TICKET COUNT PORTION
     // Notes: Meaning of ternary operator will be if current ticket count is less than 25, next step is to add a ticket then return the current ticket count.
+
     const addTicket = (ticketType) => {
         switch (ticketType) {
             case 'adult':
-            setAdultTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
-            break;
+                setAdultTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+                break;
             case 'senior':
-            setSeniorTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
-            break;
+                setSeniorTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+                break;
             case 'child':
-            setChildTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
-            break;
+                setChildTickets(currentTickets => (currentTickets < 25 ? currentTickets + 1 : currentTickets));
+                break;
             default:
-            break;
+                break;
         }
     };
 
     const removeTicket = (ticketType) => {
         switch (ticketType) {
             case 'adult':
-            setAdultTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
-            break;
+                setAdultTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+                break;
             case 'senior':
-            setSeniorTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
-            break;
+                setSeniorTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+                break;
             case 'child':
-            setChildTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
-            break;
+                setChildTickets(currentTickets => (currentTickets > 0 ? currentTickets - 1 : currentTickets));
+                break;
             default:
-            break;
+                break;
         }
     };
-    // USEEFFECT TO DEFINE THE CONSEQUENCE(AFTER EFFERS) OF USESTATE
+
+    // USEEFFECT TO DEFINE THE CONSEQUENCE(AFTER ERRERS) OF USESTATE
     // Notes: totalTickets is the accumulation of all the ticket types, 
     // setIsDisabled is connected to the useState variables to have the nextBtn disabled until the current ticket count is more than 0.
+
     useEffect(() => {
         const totalTickets = adultTickets + seniorTickets + childTickets;
         setIsDisabled(totalTickets === 0);
     }, [adultTickets, seniorTickets, childTickets]);
-    
+
 
     return (
         <section className="ticketSection">
@@ -108,9 +115,9 @@ const TicketSelection = () => {
                         <div className="ticketAmount col-6">
                             <div className="d-flex justify-content-end">
                                 <ul>
-                                    <button className="minusIcon" onClick={() => removeTicket('adult')}><FontAwesomeIcon icon={faCircleMinus} /></button>
-                                    <li className="mx-4">{adultTickets}</li>
-                                    <button className="plusIcon" onClick={() => addTicket('adult')}><FontAwesomeIcon icon={faCirclePlus} /></button>
+                                    <button className="minusIcon" onClick={() => removeTicket('adult')}><FontAwesomeIcon icon={faCircleMinus} className="white"/></button>
+                                    <li className="mx-4 white">{adultTickets}</li>
+                                    <button className="plusIcon" onClick={() => addTicket('adult')}><FontAwesomeIcon icon={faCirclePlus} className="white"/></button>
                                 </ul>
                             </div>
                         </div>
@@ -124,9 +131,9 @@ const TicketSelection = () => {
                         <div className="ticketAmount col-6">
                             <div className="d-flex justify-content-end">
                                 <ul>
-                                    <button className="minusIcon" onClick={() => removeTicket('senior')}><FontAwesomeIcon icon={faCircleMinus} /></button>
-                                    <li className="mx-4">{seniorTickets}</li>
-                                    <button className="plusIcon" onClick={() => addTicket('senior')}><FontAwesomeIcon icon={faCirclePlus} /></button>
+                                    <button className="minusIcon" onClick={() => removeTicket('senior')}><FontAwesomeIcon icon={faCircleMinus} className="white"/></button>
+                                    <li className="mx-4 white">{seniorTickets}</li>
+                                    <button className="plusIcon" onClick={() => addTicket('senior')}><FontAwesomeIcon icon={faCirclePlus} className="white"/></button>
                                 </ul>
                             </div>
                         </div>
@@ -140,9 +147,9 @@ const TicketSelection = () => {
                         <div className="ticketAmount col-6">
                             <div className="d-flex justify-content-end">
                                 <ul>
-                                    <button className="minusIcon" onClick={() => removeTicket('child')}><FontAwesomeIcon icon={faCircleMinus} /></button>
-                                    <li className="mx-4">{childTickets}</li>
-                                    <button className="plusIcon" onClick={() => addTicket('child')}><FontAwesomeIcon icon={faCirclePlus} /></button>
+                                    <button className="minusIcon" onClick={() => removeTicket('child')}><FontAwesomeIcon icon={faCircleMinus} className="white" /></button>
+                                    <li className="mx-4 white">{childTickets}</li>
+                                    <button className="plusIcon" onClick={() => addTicket('child')}><FontAwesomeIcon icon={faCirclePlus} className="white"/></button>
                                 </ul>
                             </div>
                         </div>
@@ -151,7 +158,7 @@ const TicketSelection = () => {
                     <p className="disclaimer">Prices and fees include estimated tax per ticket.</p>
 
                     <Accordion activeKey={activeKey} onSelect={(key) => setActiveKey(key)} defaultActiveKey="0">
-                    <AccordionItem eventKey="0" className="policyAccordion">
+                        <AccordionItem eventKey="0" className="policyAccordion">
                             <AccordionHeader><span className="accordionHeader">AMC Policies</span></AccordionHeader>
                             <AccordionBody className="policyAccordion">
                                 <h2>Age Policy</h2>
@@ -190,7 +197,7 @@ const TicketSelection = () => {
             <footer>
                 <div className="footerBody">
                     <h4 className="footerCopyright text-center">
-                        @ 2024 Fandango
+                        <p>@ 2024 Fandango</p>
                     </h4>
                     <nav className="footerLinks text-center">
                         <ul>
@@ -218,27 +225,27 @@ const TicketSelection = () => {
                         <div className="d-flex justify-content-center align-items-center">
                             <img src={fandangoLogo} className="w-50 mb-4" />
                         </div>
-                        
+
                         <Form onSubmit={handleSubmit}>
                             <Container>
                                 <Row>
 
                                     <Col className="col-12">
                                         <FormGroup className="mb-3">
-                                            <label htmlfor="username" className="form-label">Username</label>
+                                            <label htmlfor="username" className="form-label white">Username</label>
                                             <input
                                                 type="text"
                                                 className="form-control"
                                                 id="username"
                                                 value={username}
-                                                onChange={(e) => setUsername(e.target.value)}/>
-                                                 {errors.username && <div className="text-danger">{errors.username}</div>}
+                                                onChange={(e) => setUsername(e.target.value)} />
+                                            {errors.username && <div className="text-danger">{errors.username}</div>}
                                         </FormGroup>
                                     </Col>
 
                                     <Col className="col-12">
                                         <FormGroup className="mb-2">
-                                            <label htmlfor="password" className="form-label">Password</label>
+                                            <label htmlfor="password" className="form-label white">Password</label>
                                             <input
                                                 type="password"
                                                 className="form-control"
@@ -246,17 +253,17 @@ const TicketSelection = () => {
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
                                             />
-                                             {errors.password && <div className="text-danger">{errors.password}</div>}
+                                            {errors.password && <div className="text-danger">{errors.password}</div>}
                                         </FormGroup>
                                     </Col>
 
-                                    <span className="forgotPW ">Forgot your password?</span>
+                                    <p className="forgotPW mt-2">Forgot your password?</p>
 
                                     <Col className="col-12">
                                         <button type="submit" className="w-100 btn signInBtn mt-3 mb-3">Sign in</button>
                                     </Col>
 
-                                    <span className="termsText text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</span>
+                                    <p className="termsText text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
 
                                 </Row>
                             </Container>

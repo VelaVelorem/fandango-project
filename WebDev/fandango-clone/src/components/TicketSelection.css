@@ -1,5 +1,10 @@
 /* ACCORDION */
-
+.ticketPrice {
+    color: #cccfd1;
+}
+.white {
+    color: #cccfd1;
+}
 .policyAccordion {
     background-color: #171c20;
     border: none;
