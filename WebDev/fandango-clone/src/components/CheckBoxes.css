@@ -12,6 +12,19 @@
     border: 1em solid #4aa7f6;
     background-color: #4aa7f6;
 }
+/* To change the color of the checkboxes both the border and background color needs to be changed */
+.checkBoxSeat:hover {
+    border: 1px solid #3478c1;
+    background-color: #3478c1;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.checkBoxSeat:focus {
+    border: 1px solid #e36600;
+    background-color: #e36600;
+    transition: 0.5s;
+    cursor: pointer;
+}
 .input-group-text {
     padding: 0;
 }
@@ -21,4 +34,7 @@
 .input-group-text {
     background-color: #171c20;
     border: none;
+}
+button {
+    color: white;
 }

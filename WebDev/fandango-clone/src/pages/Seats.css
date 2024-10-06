@@ -10,6 +10,7 @@ footer {
 }
 h4 {
     font-size: 12px;
+    color: white;
 }
 .footerLinks li {
     font-size: 11px;
@@ -58,4 +59,19 @@ hr {
     body {
         overflow-y: hidden;
     }
+}
+#seatsFooter {
+    background-color: #171c20;
+    border-top: 1px solid #232a31;
+}
+.seatsBtn {
+    background-color: #f56f01;
+    color: white;
+    padding: 0.5rem 6rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid #f56f01;
+    border-radius: 3px;
+
 }

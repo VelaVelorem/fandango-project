@@ -9,8 +9,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-}
-img, picture, video, canvas, svg {
+} picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
