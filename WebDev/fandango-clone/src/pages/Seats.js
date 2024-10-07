@@ -5,6 +5,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import fandangoLogo from '../assets/imgs/fandango.svg'
 import CheckBoxes from '../components/CheckBoxes';
 import businessLogos from '../assets/imgs/footerimage.png'
+import MovieShowing from '../components/MovieShowing'
 
 const Seats = () => {
     // const [seatCount, setSeatCount] = useState(0);
@@ -12,13 +13,16 @@ const Seats = () => {
     return (
         <>
             <header>
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <img src={fandangoLogo} alt="Fandango Logo" className="fandangoLogo" />
-                    </div>
+                <div className="container d-flex justify-content-center">  
+                <img src={fandangoLogo} alt="Fandango Logo" className="fandangoLogo" />
                 </div>
-                <div className="ticketSelectionHeader d-flex align-items-center justify-content-start">
-                    <Link to="/"><FontAwesomeIcon icon={faArrowLeft} id="leftArrow" className="ms-3" /></Link>
+
+
+                <div className="ticketSelectionHeader d-flex align-items-center">
+                <div className="arrowExit"><Link to="/"><FontAwesomeIcon icon={faArrowLeft} id="leftArrow" className="ms-3" /></Link></div>
+                    
+                <div className="movieContainer mx-auto"><MovieShowing/>
+                </div>
                 </div>
             </header>
 
