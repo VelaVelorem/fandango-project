@@ -1,7 +1,11 @@
 .moviePoster {
-    width: 50%;
+    width: 100%;
+    height: 15vh;
 }
 .movieTitle {
     font-weight: 700;
     color: white;
+}
+.movieDate {
+    margin-bottom: 0;
 }

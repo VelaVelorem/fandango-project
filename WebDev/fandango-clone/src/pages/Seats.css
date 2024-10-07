@@ -54,6 +54,9 @@ hr {
     .footerEnd {
         border-top: none;
     }
+    /* .selectedSeats {
+        margin-left: 41%;
+    } */
 }
 @media (max-width: 768px) {
     body {

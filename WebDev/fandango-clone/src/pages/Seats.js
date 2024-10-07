@@ -18,18 +18,18 @@ const Seats = () => {
                 </div>
 
 
-                <div className="ticketSelectionHeader d-flex align-items-center">
+                <div className="ticketSelectionHeader d-flex">
                 <div className="arrowExit"><Link to="/"><FontAwesomeIcon icon={faArrowLeft} id="leftArrow" className="ms-3" /></Link></div>
                     
-                <div className="movieContainer mx-auto"><MovieShowing/>
+                <div className="movieContainer mx-auto pb-2 pt-2"><MovieShowing/>
                 </div>
                 </div>
             </header>
 
             <CheckBoxes/>
 
-            <footer id="seatsFooter">
-                <h4 className="text-center">0 Selected</h4>
+            <footer id="seatsFooter" className="mt-5">
+                <h4 className="selectedSeats text-center">0 Selected</h4>
                 
                 <div className="text-center mt-4">
                     <button type="button" className="seatsBtn" id="seatsBtn">Select up to 20 seats</button>

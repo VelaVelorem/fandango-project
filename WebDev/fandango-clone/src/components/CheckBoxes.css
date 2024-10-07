@@ -38,3 +38,7 @@
 button {
     color: white;
 }
+.form-check-input:checked {
+    background-color: #e36600;
+    border-color: #e36600;
+}

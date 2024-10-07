@@ -7,19 +7,17 @@ const MovieShowing = () => {
     const { image, location, date, title } = MOVIES;
     
     return (
-        
-        <Container>
-            <Row>
-                <div className="col-6 movieHolder">
+            <div className="d-flex gap-3">
+                <div className="movieHolder">
                     <img src={image} className="moviePoster" alt="movie poster" />
                 </div>
-                <div className="col-6 movieData">
+                <div className="movieData">
                     <h2 className="movieTitle">{title}</h2>
-                    <p>{date}</p>
-                    <p>{location}</p>
+                    <p className="movieDate">{date}</p>
+                    <p className="movieLocation">{location}</p>
                 </div>
-            </Row>
-        </Container>
+            </div>
+
     )
 }
 export default MovieShowing;
