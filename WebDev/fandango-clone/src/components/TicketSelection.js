@@ -7,7 +7,7 @@ import './TicketSelection.css';
 import img from '../assets/imgs/footerimage.png';
 import fandangoLogo from '../assets/imgs/fandango.svg';
 import { loginFormValidation } from '../utils/loginFormValidation';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 
 const TicketSelection = () => {
@@ -27,10 +27,6 @@ const TicketSelection = () => {
         setAppear(true);
     }
 
-    // Notes: handleSubmit will be chained to the login form, 
-    // using the preventDefault method it will refrain the page from refreshing once the form has been submitted.
-    // validationErrors grabs the object properties/keys from the loginFormValidation objects and checks if there are any errors, if there aren't, the login modal will close.
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -43,8 +39,6 @@ const TicketSelection = () => {
         }
     };
 
-    // TICKET SELECTION VARIABLES PORTION
-
     const adultTicketBase = 14.84;
     const seniorTicketBase = 13.19;
     const childTicketBase = 11.54;
@@ -55,9 +49,6 @@ const TicketSelection = () => {
 
     const [activeKey, setActiveKey] = useState('null');
     const [isDisabled, setIsDisabled] = useState(true);
-
-    // INCREMENT/DECREMENT TICKET COUNT PORTION
-    // Notes: Meaning of ternary operator will be if current ticket count is less than 25, next step is to add a ticket then return the current ticket count.
 
     const addTicket = (ticketType) => {
         switch (ticketType) {
@@ -90,10 +81,6 @@ const TicketSelection = () => {
                 break;
         }
     };
-
-    // USEEFFECT TO DEFINE THE CONSEQUENCE(AFTER ERRERS) OF USESTATE
-    // Notes: totalTickets is the accumulation of all the ticket types, 
-    // setIsDisabled is connected to the useState variables to have the nextBtn disabled until the current ticket count is more than 0.
 
     useEffect(() => {
         const totalTickets = adultTickets + seniorTickets + childTickets;
@@ -257,7 +244,7 @@ const TicketSelection = () => {
                                         </FormGroup>
                                     </Col>
 
-                                    <p className="forgotPW mt-2">Forgot your password?</p>
+                                    <Link className="forgotPW mt-2">Forgot your password?</Link>
 
                                     <Col className="col-12">
                                         <button type="submit" className="w-100 btn signInBtn mt-3 mb-3">Sign in</button>
