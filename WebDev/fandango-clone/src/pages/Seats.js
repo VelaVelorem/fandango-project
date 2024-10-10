@@ -20,7 +20,7 @@ const Seats = () => {
 
 
                 <div className="ticketSelectionHeader d-flex">
-                <div className="arrowExit"><Link to="/"><FontAwesomeIcon icon={faArrowLeft} id="leftArrow" className="ms-3" /></Link></div>
+                <div className="arrowExit"><Link to="/tickets"><FontAwesomeIcon icon={faArrowLeft} id="leftArrow" className="ms-3" /></Link></div>
                     
                 <div className="movieContainer mx-auto pb-2 pt-2"><MovieShowing/>
                 </div>

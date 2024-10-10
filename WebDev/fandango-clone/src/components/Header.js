@@ -14,7 +14,7 @@ const Header = () => (
             </div>
         </div>
         <div className="ticketSelectionHeader d-flex align-items-center justify-content-center">
-            <Link to="/"><FontAwesomeIcon icon={faArrowLeft} id="leftArrow" className="ms-3" /></Link>
+            <Link to="/tickets"><FontAwesomeIcon icon={faArrowLeft} id="leftArrow" className="ms-3" /></Link>
             <span className="ticketSelection-P mx-auto pe-5">Ticket Selection</span>
 
         </div>
