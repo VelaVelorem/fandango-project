@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/tickets" element={<Tickets />} />
+        <Route path="/fandango-project" element={<Tickets />} />
         <Route path="/seats" element={<Seats />} /> 
       </Routes>
     </Router>
