@@ -45,17 +45,17 @@ Built as my initial project during my frontend bootcamp at Nucamp, this project 
 
 ### Key React Methods
 1. **State Management**:
-   - *useState*: To handle ticket quantity, seat selections, and login input.
-   - *useEffect*: For managing side effects like enabling/disabling the "Next" button based on ticket count.
+   - *useState*: Handled ticket quantity, seat selections, and login input.
+   - *useEffect*: Managed side effects like enabling/disabling the "Next" button based on ticket count.
 
 2. **Routing & Navigation**:
-   - *BrowserRouter*: To manage routes between the ticket selection, seat booking, and contact pages.
+   - *BrowserRouter*: Manged routes between the ticket selection, seat booking, and contact pages.
    - *useNavigate*: For seamless navigation between pages based on user interactions.
 
 3. **Shared State**:
-   - *useContext*: Simplifies passing data between components without excessive prop drilling, especially useful as more components needed shared state (e.g., ticket quantity and selected seats).
+   - *useContext*: Simplified passing data between components without running into an issue with prop drilling, especially useful as my code got more complicated with more components needing shared state (e.g., ticket quantity and selected seats).
 
-### Future Enhancements 🚀
-- **Billing Page**: To calculate ticket costs and handle payments.
+### Future Features 🚀
+- **Billing Page**: To calculate total ticket costs and confirm booking(s).
 - **Improved Accessibility**: Tooltips, keyboard navigation, and ARIA labels to make the app more accessible.
 
