@@ -9,6 +9,9 @@ Built as my initial project during my frontend bootcamp at Nucamp, this project 
 ## Features Walkthrough
 
 ### Ticket Selection Page 🎟️
+
+![Alt Text](https://i.imgur.com/YnpDh5T.png)
+
 1. **Select Your Tickets**: 
    - Adjust the ticket quantity with increment and decrement buttons, capped at a maximum of 25 tickets.
    - Different ticket types, like child, adult, and senior, are available with unique pricing.  
@@ -18,10 +21,15 @@ Built as my initial project during my frontend bootcamp at Nucamp, this project 
    - Clicking "Next" opens a login modal. Dismiss the modal by clicking outside it, or complete login to proceed.
 
 3. **Login Modal**:
+
+![Alt Text](https://i.imgur.com/kfe2jpP.png)
    - To move forward, enter a username and password that meet validation criteria.
    - If your input doesn’t meet requirements, helpful prompts guide you toward a valid login.
 
 ### Seat Booking Page 🪑
+
+![Alt Text](https://i.imgur.com/zVAaG0o.png)
+
 1. **Movie and Seating Details**:
    - After login, you’ll see the movie title and viewing details at the top of the page.
    - Hover over seats to see their numbers via tooltips.
@@ -34,7 +42,10 @@ Built as my initial project during my frontend bootcamp at Nucamp, this project 
    - Click the left arrow in the top left to return to the ticket selection page if needed.
 
 ### Contact Page 📬
-- Accessible by clicking “Coded by Haneefah Witherspoon” in the footer.
+
+![Alt Text](https://i.imgur.com/JdXTGuc.png)
+
+- Accessible by clicking “Coded by Haneefah Witherspoon” in the footer of the initial ticket selection page.
 - View a simple, animated contact page with links to social profiles.
 
 ## Technology and Methods Used
