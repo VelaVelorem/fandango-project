@@ -41,7 +41,7 @@ Built as my initial project during my frontend bootcamp at Nucamp, this project 
 3. **Return to Ticket Selection**:
    - Click the left arrow in the top left to return to the ticket selection page if needed.
 
-### Contact Page 📬
+### Contact Page 
 
 ![Alt Text](https://i.imgur.com/JdXTGuc.png)
 
@@ -66,7 +66,7 @@ Built as my initial project during my frontend bootcamp at Nucamp, this project 
 3. **Shared State**:
    - *useContext*: Simplified passing data between components without running into an issue with prop drilling, especially useful as my code got more complicated with more components needing shared state (e.g., ticket quantity and selected seats).
 
-### Future Features 🚀
+### Future Features
 - **Billing Page**: To calculate total ticket costs and confirm booking(s).
 - **Improved Accessibility**: Tooltips, keyboard navigation, and ARIA labels to make the app more accessible.
 
